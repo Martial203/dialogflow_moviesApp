@@ -44,7 +44,7 @@ app.post('/api/movies', (req, res, next) => {
                 "fulfillmentMessages": [
                   {
                     "text": "azerty",
-                    "card": [{
+                    "card": {
                       "title": "card title",
                       "subtitle": "card text",
                       "imageUri": "https://example.com/images/example.png",
@@ -55,20 +55,17 @@ app.post('/api/movies', (req, res, next) => {
                         }
                       ]
                     },
-                    {
-                      "text": "azerty",
-                      "card": [{
-                        "title": "card title",
-                        "subtitle": "card text",
-                        "imageUri": "https://example.com/images/example.png",
-                        "buttons": [
-                          {
-                            "text": "button text",
-                            "postback": "https://example.com/path/for/end-user/to/follow"
-                          }
-                        ]
-                      }
-                  ]
+                    "card": {
+                      "title": "card title",
+                      "subtitle": "card text",
+                      "imageUri": "https://example.com/images/example.png",
+                      "buttons": [
+                        {
+                          "text": "button text",
+                          "postback": "https://example.com/path/for/end-user/to/follow"
+                        }
+                      ]
+                    }
                   }
                 ]
               };
