@@ -39,36 +39,22 @@ app.post('/api/movies', (req, res, next) => {
     fetch(`https://api.themoviedb.org/3/discover/movie?api_key=${API_KEY}&language=fr&with_genres=${category}`)
         .then(data => data.json())
         .then(val => {
+            const films = val.results.slice(0, 5);
+            const cards = [{
+              "text": "Voici une liste de films que je vous propose dans la catégorie "+category
+            }];
+            films.forEach(film => cards.push({
+              "card": {
+                "title": film.title,
+                "imageUri": `https://image.tmdb.org/t/p/w500/${film.poster_path}`
+              },
+              "text": `Date de sortie: ${film.release_date}\n Note: ${vote_average} Description: ${film.overview}`
+            }));
             console.log(val.results);
 
             const result = {
                 "fulfillmentMessages": [
-                  {
-                    "card": {
-                      "title": "card title",
-                      "subtitle": "card text",
-                      "imageUri": "https://example.com/images/example.png",
-                      "buttons": [
-                        {
-                          "text": "button text",
-                          "postback": "https://example.com/path/for/end-user/to/follow"
-                        }
-                      ]
-                    }
-                  },
-                  {
-                    "card": {
-                      "title": "card title",
-                      "subtitle": "card text",
-                      "imageUri": "https://example.com/images/example.png",
-                      "buttons": [
-                        {
-                          "text": "button text",
-                          "postback": "https://example.com/path/for/end-user/to/follow"
-                        }
-                      ]
-                    }
-                  }
+                  ...cards
                 ]
               };
             res.status(200).json(result);
