@@ -40,10 +40,10 @@ app.post('/api/movies', (req, res, next) => {
         .then(data => data.json())
         .then(val => {
             console.log(val.results);
+
             const result = {
                 "fulfillmentMessages": [
                   {
-                    "text": "azerty",
                     "card": {
                       "title": "card title",
                       "subtitle": "card text",
@@ -54,7 +54,9 @@ app.post('/api/movies', (req, res, next) => {
                           "postback": "https://example.com/path/for/end-user/to/follow"
                         }
                       ]
-                    },
+                    }
+                  },
+                  {
                     "card": {
                       "title": "card title",
                       "subtitle": "card text",
