@@ -40,7 +40,7 @@ app.post('/api/movies', (req, res, next) => {
         .then(data => data.json())
         .then(val => {
             console.log(val.results);
-            const films = val.results.slice(0, 5);
+            const films = val.results.slice(0, 3);
             const cards = [{"text": {
               "text": [
                 "Voici une liste de films que je vous propose, dans la catégorie "+category
