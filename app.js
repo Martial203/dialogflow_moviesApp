@@ -50,8 +50,9 @@ app.post('/api/movies', (req, res, next) => {
               "card": {
                 "title": film.title,
                 "imageUri": `https://image.tmdb.org/t/p/w500/${film.poster_path}`
-              },
-              "text": `Date de sortie: ${film.release_date}\n Note: ${film.vote_average} Description: ${film.overview}`
+              }},
+              {
+              "text": {"text": [`Date de sortie: ${film.release_date}\n Note: ${film.vote_average} Description: ${film.overview}`]}
             }));
             console.log(val.results);
 
