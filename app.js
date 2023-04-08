@@ -33,6 +33,7 @@ const genres = {
 
 app.post('/api/movies', (req, res, next) => {
     let category = req.body.queryResult.parameters.genre;
+    const categ = category;
     console.log(category);
     category = genres[category];
     console.log(category);
@@ -43,7 +44,7 @@ app.post('/api/movies', (req, res, next) => {
             const films = val.results.slice(0, 3);
             const cards = [{"text": {
               "text": [
-                "Voici une liste de films que je vous propose, dans la catégorie "+category
+                "Voici une liste de films que je vous propose, dans la catégorie "+categ
               ]
             }}];
             films.forEach(film => cards.push({
