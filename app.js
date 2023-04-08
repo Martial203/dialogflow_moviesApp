@@ -43,7 +43,8 @@ app.post('/api/movies', (req, res, next) => {
             const result = {
                 "fulfillmentMessages": [
                   {
-                    "card": {
+                    "text": "azerty",
+                    "card": [{
                       "title": "card title",
                       "subtitle": "card text",
                       "imageUri": "https://example.com/images/example.png",
@@ -53,7 +54,21 @@ app.post('/api/movies', (req, res, next) => {
                           "postback": "https://example.com/path/for/end-user/to/follow"
                         }
                       ]
-                    }
+                    },
+                    {
+                      "text": "azerty",
+                      "card": [{
+                        "title": "card title",
+                        "subtitle": "card text",
+                        "imageUri": "https://example.com/images/example.png",
+                        "buttons": [
+                          {
+                            "text": "button text",
+                            "postback": "https://example.com/path/for/end-user/to/follow"
+                          }
+                        ]
+                      }
+                  ]
                   }
                 ]
               };
